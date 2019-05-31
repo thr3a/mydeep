@@ -41,8 +41,8 @@ model.compile(loss='categorical_crossentropy',
               metrics=['acc'])
 
 # the data, split between train and test sets
-train_dir = 'works/data/hand_sign/train'
-validation_dir = 'works/data/hand_sign/test'
+train_dir = '/works/data/hand_sign/train'
+validation_dir = '/works/data/hand_sign/test'
 train_datagen = ImageDataGenerator(rescale=1./255)
 validation_datagen = ImageDataGenerator(rescale=1./255)
 train_generator = train_datagen.flow_from_directory(
@@ -68,7 +68,7 @@ tensorboard_callback = tf.keras.callbacks.TensorBoard(
 
 os.makedirs('models', exist_ok=True)
 model_checkpoint = tf.keras.callbacks.ModelCheckpoint(
-    filepath=os.path.join('models', 'model_{epoch:02d}_{val_loss:.2f}.h5'),
+    filepath=os.path.join('works', 'models', 'model_{epoch:02d}_{val_loss:.2f}.h5'),
     monitor='val_loss',
     verbose=1)
 
