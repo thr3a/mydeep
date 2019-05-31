@@ -14,7 +14,7 @@ config = tf.ConfigProto(
 )
 set_session(tf.Session(config=config))
 
-batch_size = 32
+batch_size = 8
 num_classes = 10
 epochs = 20
 
@@ -66,6 +66,12 @@ tensorboard_callback = tf.keras.callbacks.TensorBoard(
     write_grads=True,
     write_graph=False)
 
+os.makedirs('models', exist_ok=True)
+model_checkpoint = tf.keras.callbacks.ModelCheckpoint(
+    filepath=os.path.join('models', 'model_{epoch:02d}_{val_loss:.2f}.h5'),
+    monitor='val_loss',
+    verbose=1)
+
 train_step_size = train_generator.n // train_generator.batch_size
 validation_step_size = validation_generator.n // validation_generator.batch_size
 
@@ -76,7 +82,7 @@ model.fit_generator(
       validation_data=validation_generator,
       validation_steps=validation_step_size,
       verbose=1,
-      callbacks=[tensorboard_callback]
+      callbacks=[tensorboard_callback, model_checkpoint]
       )
 
-model.save('sign_1.h5')
+# model.save('sign_1.h5')
