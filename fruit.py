@@ -1,4 +1,4 @@
-import keras
+# import keras
 import tensorflow as tf
 from tensorflow.keras import layers
 from tensorflow.keras import models
@@ -64,7 +64,7 @@ log_dir="works/logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M")
 tensorboard_callback = tf.keras.callbacks.TensorBoard(
     log_dir=log_dir,
     histogram_freq=1,
-    write_images=False,
+    write_grads=True,
     write_graph=False)
 
 train_step_size = train_generator.n // train_generator.batch_size
