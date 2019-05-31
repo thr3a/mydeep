@@ -44,7 +44,14 @@ model.compile(loss='categorical_crossentropy',
 # the data, split between train and test sets
 train_dir = '/works/data/hand_sign/train'
 validation_dir = '/works/data/hand_sign/test'
-train_datagen = ImageDataGenerator(rescale=1./255)
+train_datagen = ImageDataGenerator(
+    rescale=1./255,
+    rotation_range=40,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.2,
+    zoom_range=0.2,
+    horizontal_flip=True)
 validation_datagen = ImageDataGenerator(rescale=1./255)
 train_generator = train_datagen.flow_from_directory(
     train_dir,
