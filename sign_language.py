@@ -67,9 +67,9 @@ tensorboard_callback = tf.keras.callbacks.TensorBoard(
     write_grads=True,
     write_graph=False)
 
-os.makedirs('models', exist_ok=True)
+os.makedirs('/works/models', exist_ok=True)
 model_checkpoint = tf.keras.callbacks.ModelCheckpoint(
-    filepath=os.path.join('works', 'models', 'model_{epoch:02d}_{val_loss:.2f}.h5'),
+    filepath=os.path.join('/works/models', 'model_{epoch:02d}_{val_loss:.2f}.h5'),
     monitor='val_loss',
     verbose=1)
 
