@@ -15,7 +15,7 @@ config = tf.ConfigProto(
 set_session(tf.Session(config=config))
 
 batch_size = 32
-num_classes = 103
+num_classes = 10
 epochs = 20
 
 # input image dimensions
@@ -41,8 +41,8 @@ model.compile(loss='categorical_crossentropy',
               metrics=['acc'])
 
 # the data, split between train and test sets
-train_dir = 'works/data/fruits-360/Training'
-validation_dir = 'works/data/fruits-360/Test'
+train_dir = 'works/data/hand_sign/train'
+validation_dir = 'works/data/hand_sign/test'
 train_datagen = ImageDataGenerator(rescale=1./255)
 validation_datagen = ImageDataGenerator(rescale=1./255)
 train_generator = train_datagen.flow_from_directory(
@@ -79,4 +79,4 @@ model.fit_generator(
       callbacks=[tensorboard_callback]
       )
 
-model.save('fruit_1.h5')
+model.save('sign_1.h5')
