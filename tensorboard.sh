@@ -1,0 +1,1 @@
+docker run -p 0.0.0.0:2407:3000 -v `pwd`:/works -it --rm --runtime=nvidia tahara/keras-sample tensorboard --logdir /works/logs --host 0.0.0.0 --port 3000
