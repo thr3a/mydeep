@@ -4,6 +4,7 @@ from tensorflow.keras import models
 from tensorflow.keras import optimizers
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import datetime
+import os
 
 from keras.backend.tensorflow_backend import set_session
 config = tf.ConfigProto(
