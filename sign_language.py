@@ -84,14 +84,14 @@ train_step_size = train_generator.n // train_generator.batch_size
 validation_step_size = validation_generator.n // validation_generator.batch_size
 print(train_step_size)
 print(validation_step_size)
-model.fit_generator(
-      train_generator,
-      steps_per_epoch=train_step_size,
-      epochs=epochs,
-      validation_data=validation_generator,
-      validation_steps=validation_step_size,
-      verbose=1,
-      callbacks=[tensorboard_callback, model_checkpoint]
-      )
+# model.fit_generator(
+#       train_generator,
+#       steps_per_epoch=train_step_size,
+#       epochs=epochs,
+#       validation_data=validation_generator,
+#       validation_steps=validation_step_size,
+#       verbose=1,
+#       callbacks=[tensorboard_callback, model_checkpoint]
+#       )
 
 # model.save('sign_1.h5')
